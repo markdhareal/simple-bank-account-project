@@ -12,11 +12,11 @@ class BankAccount:
             self.check_balance()
 
     def withdraw(self, amount):
-        if amount > self.balance:
-            return f'you only have ${self.balance}'
-        else:
+        if amount > 0 and amount <= self.balance:
             self.balance = self.balance - amount
             return f'Successful! You only have ${self.balance}'
+        else:
+            return 'Insufficient Funds'
 
     def __str__(self):
         return f'Owner: {self.name} Balance: {self.balance}'
